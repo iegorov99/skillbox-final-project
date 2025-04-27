@@ -1,0 +1,184 @@
+@use "/src/scss/global/variables";
+@use "/src/scss/global/mixins";
+
+.movie-card {
+  &__wrapper {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+
+    @include mixins.vp-1023 {
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+      justify-items: center;
+      gap: 24px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include mixins.vp-1023 {
+      gap: 12px;
+    }
+
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      max-width: 565px;
+      gap: 60px;
+
+      @include mixins.vp-1023 {
+        max-width: unset;
+        gap: 32px;
+      }
+    }
+  }
+
+  &__top {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__release-year, &__genre, &__runtime {
+    color: variables.$color-white-7;
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 18px;
+
+    @include mixins.vp-767 {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  &__title {
+    color: variables.$color-white;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56px;
+    margin: 0;
+
+    @include mixins.vp-767 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  &__plot {
+    color: variables.$color-white-7;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    margin: 0;
+
+    @include mixins.vp-767 {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-start;
+
+    @include mixins.vp-767 {
+      display: grid;
+      grid-template-columns: 1fr;
+
+      .btn {
+        grid-row: 2;
+      }
+
+      .btn--blue {
+        grid-row: 1;
+        width: 100%;
+        grid-column: 1 / 4;
+      }
+    }
+  }
+
+  &__backdrop {
+    width: 680px;
+    border-radius: 16px;
+
+    @media (max-width: 1200px) {
+      width: 500px;;
+    }
+
+    @include mixins.vp-1023 {
+      width: 680px;
+      grid-row: 1;
+    }
+
+    @include mixins.vp-767 {
+      width: 100%;
+      grid-row: 1;
+    }
+  }
+
+  &__poster {
+    max-width: 40px;
+    display: none;
+  }
+
+  &--search {
+    .movie-card__buttons {
+      display: none;
+    }
+
+    .movie-card__wrapper {
+      display: flex;
+      gap: 16px;
+
+      @include mixins.vp-1023 {
+        flex-direction: column;
+        width: 220px;
+        align-items: start;
+      }
+    }
+
+    .movie-card__poster {
+      display: block;
+
+      @include mixins.vp-1023 {
+        max-width: unset;
+        width: 158px;
+        height: 206px;
+      }
+    }
+
+    .movie-card__info {
+      gap: 8px;
+    }
+
+    .movie-card__top {
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+  
+    .movie-card__release-year, .movie-card__genre, .movie-card__runtime {
+      line-height: 20px;
+      font-size: 14px;
+    }
+
+    .movie-card__title {
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    .movie-card__plot {
+      display: none;
+    }
+
+    .movie-card__backdrop {
+      display: none;
+    }
+  }
+}

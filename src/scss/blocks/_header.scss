@@ -1,0 +1,116 @@
+@use "/src/scss/global/variables";
+@use "/src/scss/global/mixins";
+
+.header {
+  padding: 24px 0;
+
+  @include mixins.vp-1023 {
+    padding: 16px 0;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 143px 1fr max-content;
+    gap: 80px;
+    justify-content: space-between;
+    align-items: center;
+
+    @include mixins.vp-1023 {
+      gap: 24px;
+    }
+
+    @include mixins.vp-767 {
+      gap: 20px;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    gap: 12px;
+    padding: 0 0 0 7px;
+    transition: transform variables.$transition;
+
+    @include mixins.vp-767 {
+      gap: 7px;
+    }
+
+    &:hover ,
+    &:focus-visible {
+      transform: scale(1.1);
+    }
+
+    &-icon {
+      width: 25px;
+      height: 32px;
+
+      @include mixins.vp-767 {
+        width: 14px;
+        height: 18px;
+      }
+    }
+
+    &-word {
+      width: 99px;
+      height: 21px;
+      color: variables.$color-white;
+      margin: 8px 0 0 0;
+      transition: color variables.$transition;
+
+      @include mixins.vp-767 {
+        gap: 24px;
+        width: 56px;
+        height: 12px;
+        margin: 6px 0 0 0;
+      }
+    }
+  }
+
+  &__btn {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    color: variables.$color-white;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    border: none;
+    transition: color variables.$transition;
+
+    &-icon {
+      width: 22px;
+      height: 27px;
+
+      @include mixins.vp-767 {
+        width: 16px;
+        height: 21px;
+      }
+    }
+
+    @include mixins.vp-1023 {
+      display: none;
+    }
+
+    &--mobile {
+      width: 40px;
+      height: 40px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      @include mixins.vp-1023 {
+        display: flex;
+      }
+
+      @include mixins.vp-767 {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: variables.$color-perano;
+    }
+  }
+
+}

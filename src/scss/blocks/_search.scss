@@ -1,0 +1,61 @@
+@use "/src/scss/global/variables";
+@use "/src/scss/global/mixins";
+
+.search {
+  position: absolute;
+  padding: 8px;
+  width: 559px;
+  background-color: variables.$color-montana;
+  border-radius: 8px;
+  top: 60px;
+  right: 0px;
+  z-index: 2;
+
+  @include mixins.vp-1023 {
+    right: unset;
+    left: 0;
+    width: 100%;
+    padding: 24px 20px;
+  }
+
+  &__list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+
+    @include mixins.vp-1023 {
+      flex-direction: row;
+      gap: 16px;
+      overflow-y: auto;
+      margin: 0px -19px 0px -19px;
+      padding: 0px 19px 0px 19px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  &__item {
+    padding: 20px 8px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: border-color variables.$transition;     
+
+    &:hover,
+    &:focus-visible {
+      border-color: variables.$color-white-5;
+    }
+  }
+
+  &__no-results {
+    color: variables.$color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

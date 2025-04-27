@@ -1,0 +1,117 @@
+@use "/src/scss/global/variables";
+@use "/src/scss/global/mixins";
+
+.main-nav {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+
+  &--mobile {
+    margin-left: auto;
+    gap: 20px;
+    display: none;
+  }
+
+  @include mixins.vp-1023 {
+    display: none;
+
+    &--mobile {
+      display: flex;
+    }
+  }
+
+  &__link {
+    color: variables.$color-white;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    position: relative;
+    transition: color variables.$transition;
+
+    @include mixins.vp-1023 {
+      display: none;
+    }
+    
+
+    &--mobile {
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      display: none;
+
+      @include mixins.vp-1023 {
+        display: flex;
+      }
+
+      @include mixins.vp-767 {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    &-icon {
+      width: 25px;
+      height: 25px;
+
+      @include mixins.vp-767 {
+        width: 19px;
+        height: 19px;
+      }
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: variables.$color-perano;
+    }
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      bottom: -8px;
+      background-color: variables.$color-heliotrope;
+      clip-path: variables.$lef-rigth-start;
+      transition: clip-path variables.$transition;
+    }
+
+    &--active {
+      &::before {
+        clip-path: variables.$lef-rigth-end;
+      }
+    }
+  }
+
+  &__search-btn {
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
+    color: variables.$color-white;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    
+    @include mixins.vp-1023 {
+      display: flex;
+    }
+
+    @include mixins.vp-767 {
+      width: 24px;
+      height: 24px;
+    }
+
+    &-icon {
+      width: 25px;
+      height: 25px;
+
+      @include mixins.vp-767 {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

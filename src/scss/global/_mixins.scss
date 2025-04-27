@@ -1,0 +1,13 @@
+@use "/src/scss/global/variables";
+
+@mixin vp-1023 {
+  @media (max-width: variables.$vp-tablet) {
+    @content;
+  }
+}
+
+@mixin vp-767 {
+  @media (max-width: variables.$vp-mobile) {
+    @content;
+  }
+}

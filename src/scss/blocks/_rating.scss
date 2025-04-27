@@ -1,0 +1,37 @@
+@use "/src/scss/global/variables";
+
+.rating {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: 16px;
+  color: variables.$color-white;
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__number {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  &--search {
+    gap: 4px;
+    padding: 2px 8px;
+
+    .rating__icon {
+      width: 9px;
+      height: 9px;
+    }
+
+    .rating__number {
+      font-size: 12px;
+      line-height: 16px;
+    }
+  }
+}

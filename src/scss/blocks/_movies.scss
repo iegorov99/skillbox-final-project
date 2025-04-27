@@ -1,0 +1,194 @@
+@use "/src/scss/global/variables";
+@use "/src/scss/global/mixins";
+
+.movies {
+  
+  &__list {
+    counter-reset: number;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    row-gap: 64px;
+    column-gap: 40px;
+
+    @include mixins.vp-1023 {
+      gap: 40px;
+    }
+
+    @media (max-width: 527px) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &--top {
+      @include mixins.vp-1023 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow: auto;
+        gap: 40px;
+        margin: -45px -20px -45px -20px;
+        padding: 45px 20px 45px 20px;
+        
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+
+    &--favorites {
+      grid-template-columns: repeat(5, 224px);
+
+      .movies__item {
+        height: 336px;
+      }
+
+      @include mixins.vp-1023 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow: auto;
+        gap: 40px;
+        margin: -45px -20px -45px -20px;
+        padding: 45px 20px 45px 20px;
+        
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+
+      .movies__image {
+        @media (max-width: 527px) {
+          height: 336px;
+        }
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+    border: 1px solid transparent;
+    height: 336px;
+    border-radius: 16px;
+    transition: border-color variables.$transition, box-shadow variables.$transition, transform variables.$transition;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0px 0px 40px 0px rgba(255, 255, 255, 0.33);
+
+    &:hover {
+      border-color: variables.$color-white;
+      box-shadow: 0px 0px 40px 0px rgba(255, 255, 255, 0.7);
+      transform: scale(1.1);
+    }
+
+    @include mixins.vp-1023 {
+      min-width: 226px;
+    }
+
+    @media (max-width: 527px) {
+      height: 503px;
+    }
+  }
+
+  &__item--top {
+    &::before {
+      counter-increment: number;
+      content: counter(number);
+      position: absolute;
+      display: flex;
+      width: 62px;
+      height: 48px;
+      background-color: variables.$color-white;
+      color: variables.$color-slate-blue;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
+      padding: 8px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50px;
+      top: -12px;
+      left: -12px;
+    }
+
+    @media (max-width: 527px) {
+      height: 336px;
+    }
+
+    .movies__image {
+      @media (max-width: 527px) {
+        height: 336px;
+      }
+    }
+  }
+
+  &__item--favorites {
+    .movies__btn {
+      pointer-events: none;
+      color: transparent;
+      background-color: transparent;
+      transition: color variables.$transition, background-color variables.$transition;
+    }
+
+    &:hover {
+      .movies__btn {
+        pointer-events: all;
+        color: variables.$color-black;
+        background-color: variables.$color-white;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    
+    object-fit: fill;
+
+    @media (max-width: 600px) {
+      object-fit: cover;
+    }
+
+    @media (max-width: 527px) {
+      height: 503px;
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: variables.$color-eclips;
+    color: variables.$color-white;
+    font-weight: 700;
+    height: 333px;
+    border-radius: 16px;
+    padding: 20px;
+  }
+
+  &__btn {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    background-color: transparent;
+    padding: 5px;
+    border: none;
+    border-radius: 30px;
+    top: -20px;
+    right: -20px;
+    pointer-events: none;
+
+    &-icon {
+      width: 13px;
+      height: 13px;
+    }
+  }
+}

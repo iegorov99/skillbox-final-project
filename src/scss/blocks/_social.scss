@@ -1,0 +1,59 @@
+@use "/src/scss/global/variables";
+@use "/src/scss/global/mixins";
+
+.social {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 24px;
+
+  &__item {
+    width: 36px;
+    height: 36px;
+
+    @include mixins.vp-767 {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid variables.$color-white-8;
+    padding: 8px;
+    transition: border-color variables.$transition, transform variables.$transition;
+
+    @include mixins.vp-767 {
+      width: 24px;
+      height: 24px;
+    }
+
+    &:hover, &:focus-visible {
+      border-color: variables.$color-perano;
+      transform: scale(1.2);
+    }
+
+    &:hover .social__link-icon, &:focus-visible .social__link-icon {
+      color: variables.$color-perano;
+    }
+
+    &-icon {
+      width: 19px;
+      height: 20px;
+      color: variables.$color-white-8;
+      flex-shrink: 0;
+      transition: color variables.$transition;
+
+      @include mixins.vp-767 {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }  
+}

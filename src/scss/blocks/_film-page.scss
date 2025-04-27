@@ -1,0 +1,93 @@
+@use "/src/scss/global/variables";
+@use "/src/scss/global/mixins";
+
+.film-page {
+  &__movie {
+    .movie-card__btn {
+      max-width: 171px;
+    }
+    margin: 0 0 64px;
+  }
+
+  .movie-card__buttons {
+    display: flex;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+
+    &-title {
+      color: variables.$color-white;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 48px;
+      margin: 0 0 64px;
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      @include mixins.vp-1023 {
+        gap: 12px;
+      }
+    }
+
+    &-item {
+      color: variables.$color-white;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24px;
+      display: flex;
+      gap: 8px;
+
+      @include mixins.vp-1023 {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+
+    &-note {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      min-width: 320px;
+      gap: 8px;
+
+      &-text {
+        display: block;
+      }
+
+      @include mixins.vp-1023 {
+        color: variables.$color-white-5;
+      }
+
+      @include mixins.vp-767 {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+
+    &-dash {
+      position: relative;
+
+      @include mixins.vp-1023 {
+        display: none;
+      }
+
+      &::before {
+        position: absolute;
+        content: "";
+        height: 1px;
+        border-bottom: 1px dashed variables.$color-white;
+        width: 100%;
+        left: 0;
+        bottom: 5px;
+      }
+    }
+  }
+}

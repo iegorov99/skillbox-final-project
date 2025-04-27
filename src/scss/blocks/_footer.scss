@@ -1,0 +1,14 @@
+@use "/src/scss/global/mixins";
+
+.footer {
+  &__wrapper {
+    padding: 42px 0;
+    display: flex;
+    justify-content: flex-end;
+
+    @include mixins.vp-1023 {
+      justify-content: start;
+      padding: 24px 0;
+    }
+  }
+}

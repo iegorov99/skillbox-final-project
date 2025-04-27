@@ -1,0 +1,79 @@
+@use "/src/scss/global/variables";
+@use "/src/scss/global/mixins";
+
+.treiler {
+  width: 100%;
+  height: 542px;
+  background-color: variables.$color-dim-gray;
+  border: 1px solid variables.$color-white-5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  @media (max-width: 1130px) {
+    height: 375px;
+  }
+
+  @media (max-width: 580px) {
+    height: 325px;
+  }
+
+  @media (max-width: 480px) {
+    height: 275px;
+  }
+
+  @media (max-width: 380px) {
+    height: 212px;
+  }
+
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  &__btn {
+    display: flex;
+    margin: 0;
+    padding: 20px;
+    border-radius: 40px;
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    pointer-events: none;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    
+    &-icon-pause {
+      width: 20px;
+      height: 30px;
+      flex-shrink: 0;
+    }
+
+    &-icon-play {
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+    }
+  }
+
+  &__pause-title {
+    position: absolute;
+    width: calc(100% - 40px);
+    left: 20px;
+    bottom: 24px;
+    background-color: variables.$color-black-05;
+    padding: 24px 40px;
+    color: variables.$color-white;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,27 @@
+@use "/src/scss/global/variables";
+@use "/src/scss/global/mixins";
+
+.not-found {
+
+  &__wrapper {
+    height: calc(100vh - 235px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__title {
+    color: variables.$color-white;
+    font-weight: 700;
+    line-height: 48px;
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-num {
+      font-size: 128px;
+      line-height: 138px;
+    }
+  }
+}

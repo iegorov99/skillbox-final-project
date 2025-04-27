@@ -1,0 +1,79 @@
+@use "/src/scss/global/variables";
+@use "/src/scss/global/mixins";
+
+.genre-list-page {
+  padding: 64px 0 0;
+
+  @include mixins.vp-1023 {
+    padding: 16px 0 0;
+  }
+
+  &__back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    align-items: center;
+    margin: 0 0 64px;
+    gap: 30px;
+    padding: 0;
+    color: variables.$color-white;
+    transition: color variables.$transition;
+
+    &:hover, &:focus-visible {
+      color: variables.$color-perano;
+    }
+
+    &:hover .genre-list-page__back-icon, &:focus-visible {
+      transform: translateX(-2px) scale(1.3);
+    }
+
+    @include mixins.vp-1023 {
+      margin: 0 0 40px;
+    }
+
+    @include mixins.vp-767 {
+      gap: 19px;
+    }
+
+    &-icon {
+      width: 13px;
+      height: 21px;
+      flex-shrink: 0;
+      transition: transform variables.$transition;
+
+      @include mixins.vp-767 {
+        width: 10px;
+        height: 17px;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    line-height: 56px;
+    font-size: 48px;
+    margin: 0;
+
+    @include mixins.vp-767 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  &__movies {
+    margin: 0 0 64px;
+
+    @media (max-width: 527px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__button {
+    max-width: 218px;
+    margin: 0 auto;
+  }
+}

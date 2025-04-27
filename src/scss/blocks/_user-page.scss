@@ -1,0 +1,207 @@
+@use "/src/scss/global/variables";
+@use "/src/scss/global/mixins";
+
+.user-page {
+  padding: 64px 0 0 0;
+
+  @include mixins.vp-1023 {
+    padding: 22px 0 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 73px;
+
+    @include mixins.vp-1023 {
+      gap: 48px;;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 700;
+    line-height: 56px;
+    font-size: 48px;
+    color: variables.$color-white;
+
+    @include mixins.vp-767 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    gap: 70px;
+
+    @include mixins.vp-1023 {
+      gap: 30px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    gap: 11px;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    align-items: center;
+    color: variables.$color-white;
+    position: relative;
+    transition: color variables.$transition;
+
+    &:hover, &:focus-visible {
+      color: variables.$color-perano;
+    }
+
+    &:hover .user-page__button-icon, &:focus-visible .user-page__button-icon {
+      color: variables.$color-perano;
+    }
+
+    &:hover .user-page__button-icon--favorite, &:focus-visible .user-page__button-icon--favorite {
+      color: transparent;
+      stroke: variables.$color-perano;
+    }
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      bottom: -8px;
+      background-color: variables.$color-heliotrope;
+      clip-path: variables.$lef-rigth-start;
+      transition: clip-path variables.$transition;
+    }
+
+    &--active {
+      &::before {
+        clip-path: variables.$lef-rigth-end;
+      }
+    }
+
+    &-icon {
+      width: 16px;
+      height: 21px;
+      color: variables.$color-white;
+      transition: color variables.$transition, stroke variables.$transition;
+
+      &--favorite {
+        width: 20px;
+        height: 19px;
+        color: transparent;
+        stroke-width: 2px;
+        stroke: variables.$color-white;
+      }
+    }
+  }
+
+  &__favorites {
+    max-height: calc(100vh - 450px);
+    overflow-y: auto;
+    margin: -60px -100px -60px -100px;
+    padding: 60px 100px 60px 100px;
+
+    @include mixins.vp-1023 {
+      max-height: unset;
+      overflow-y: unset;
+      margin: 0 0 20px;
+      padding: 0;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__settings {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+
+    @include mixins.vp-767 {
+      gap: 40px;
+    }
+  }
+
+  &__about {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__info {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+
+    &-image {
+      padding: 14px;
+      border-radius: 30px;
+      width: 60px;
+      height: 60px;
+      background-color: variables.$color-white-5;
+      color: variables.$color-white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
+
+      @include mixins.vp-767 {
+        width: 48px;
+        height: 48px;
+        padding: 8px;
+        font-size: 22px;
+        line-height: 28px;
+      }
+
+      &-icon {
+        width: 22px;
+        height: 18px;
+      }
+    }
+
+    &-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    &-note {
+      color: variables.$color-white;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24px;
+
+      @include mixins.vp-767 {
+        font-size: 14px;
+        line-height: 20px;
+        color: variables.$color-white-5;
+      }
+    }
+
+    &-text {
+      color: variables.$color-white;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
+
+      @include mixins.vp-767 {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  &__btn {
+    max-width: 262px;
+  }
+}
